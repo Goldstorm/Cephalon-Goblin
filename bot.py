@@ -26,7 +26,7 @@ async def change(ctx):
     Change my profile picture.
     """
     rand_file = random.randint(1, 9)
-    goblin_pics = './components/images/{}.png'.format(rand_file)
+    goblin_pics = '/opt/goblin/components/images/{}.png'.format(rand_file)
     with open(goblin_pics, 'rb') as f:
         await bot.user.edit(avatar=f.read())
     await ctx.send("This can be done every 30 minutes.")
@@ -57,11 +57,11 @@ async def build(ctx, rage: str):
     area = message.channel
     if message.author.id == brain.andrew:
         if rage.lower() == "angry":
-            await area.send("Here's the build", file=File('./components/images/build/build.png'))
+            await area.send("Here's the build", file=File('/opt/goblin/components/images/build/build.png'))
         elif rage.lower() == "angrier":
-            await area.send("We've been here before...", file=File('./components/images/build/build.png'))
+            await area.send("I know we've been here before, did your brain stop working?", file=File('/opt/goblin/components/images/build/build.png'))
         elif rage.lower() == "angriest":
-            await area.send('You had your chance', file=File('./components/images/build/build2.png'))
+            await area.send("You had your chance to actually use your eyes last time, here's a build just for you.", file=File('/opt/goblin/components/images/build/build2.png'))
         elif rage is None:
             await asyncio.sleep(1)
         else:
