@@ -1,4 +1,4 @@
-from components.warframe.equipment import *
+from components.warframe.equipment.importer import WarframeDB
 import json
 import requests
 import random
@@ -7,18 +7,15 @@ class Parser:
     def __init__(self):
         print("Getting the weapons ready...")
         self.weapons = json.loads(requests.get(url='https://ws.warframestat.us/weapons').content)
+        with open('/opt/goblin/components/warframe/data/weapons.json', 'w') as outfile:
+            json.dump(self.weapons, outfile)
+        # WarframeDB().updateWeapons(self.weapons)
+
         print("Getting the warframes ready...")
         self.frames = json.loads(requests.get(url='https://ws.warframestat.us/warframes').content)
+        with open('/opt/goblin/components/warframe/data/frames.json', 'w') as outfile:
+            json.dump(self.frames, outfile)
         print("Frames and weapons online!")
-
-    def primary(self):
-        pass
-
-    def secondary(self):
-        pass
-
-    def melee(self):
-        pass
 
     async def oldFrame(self):
         frame = random.randint(0, len(self.frames))
