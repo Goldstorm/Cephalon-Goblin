@@ -25,7 +25,7 @@ async def change(ctx):
     """
     Change my profile picture.
     """
-    rand_file = random.randint(1, 9)
+    rand_file = random.randint(1, 11)
     goblin_pics = '/opt/goblin/components/images/{}.png'.format(rand_file)
     with open(goblin_pics, 'rb') as f:
         await bot.user.edit(avatar=f.read())
