@@ -32,7 +32,6 @@ async def change(ctx):
     await ctx.send("This can be done every 30 minutes.")
     await asyncio.sleep(1)
 
-
 @bot.command()
 async def chance(ctx):
     """
@@ -69,5 +68,10 @@ async def build(ctx, rage: str):
     else:
         await asyncio.sleep(1)
 
+
+@bot.command()
+async def goblinslayer(ctx):
+    await ctx.send("This isn't a real command. STOP!")
+    await asyncio.sleep(1)
 
 bot.run(brain.secrets['token'])
